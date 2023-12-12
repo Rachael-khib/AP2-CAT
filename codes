@@ -1,0 +1,152 @@
+1. Write a C# program that will assign a random number to the variable n each time it is executed. Complete the source code to print whether the number stored in the variable n is positive or negative
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Create an instance of Random class
+        Random random = new Random();
+
+        // Generate a random number between -100 and 100
+        int n = random.Next(-100, 101);
+
+        // Check if the number is positive, negative, or zero
+        if (n > 0)
+        {
+            Console.WriteLine($"The number {n} is positive.");
+        }
+        else if (n < 0)
+        {
+            Console.WriteLine($"The number {n} is negative.");
+        }
+        else
+        {
+            Console.WriteLine("The number is zero.");
+        }
+    }
+}
+
+2. This program will assign a random number to the variable n each time it is executed. Complete the source code to print the last digit of the number stored in the variable n
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Create an instance of Random class
+        Random random = new Random();
+
+        // Generate a random number between -1000 and 1000
+        int n = random.Next(-1000, 1001);
+
+        // Display the generated number
+        Console.WriteLine($"The number is: {n}");
+
+        // Get the last digit of the number
+        int lastDigit = Math.Abs(n % 10); // Taking absolute value for negative numbers
+
+        // Print the last digit
+        Console.WriteLine($"The last digit of the number is: {lastDigit}");
+    }
+}
+
+3. Write a function that swaps the values of two integers
+
+using System;
+
+class Program
+{
+    static void Swap(ref int a, ref int b)
+    {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+
+    static void Main()
+    {
+        int num1 = 5;
+        int num2 = 10;
+
+        Console.WriteLine($"Before swapping: num1 = {num1}, num2 = {num2}");
+
+        // Call the Swap function to swap the values
+        Swap(ref num1, ref num2);
+
+        Console.WriteLine($"After swapping: num1 = {num1}, num2 = {num2}");
+    }
+}
+
+4. Write a function that prints a string, followed by a new line.
+
+using System;
+
+class Program
+{
+    static void PrintString(string input)
+    {
+        Console.WriteLine(input);
+    }
+
+    static void Main()
+    {
+        string text = "Hello, world!";
+        PrintString(text);
+    }
+}
+
+5. Write a function that prints a string in reverse
+
+using System;
+
+class Program
+{
+    static void PrintStringReversed(string input)
+    {
+        char[] charArray = input.ToCharArray();
+        Array.Reverse(charArray);
+        Console.WriteLine(new string(charArray));
+    }
+
+    static void Main()
+    {
+        string text = "Hello, world!";
+        PrintStringReversed(text);
+    }
+}
+
+6. Write a function that gets the length of a prefix substring 
+
+using System;
+
+class Program
+{
+    static int PrefixLength(string input, string prefix)
+    {
+        int length = 0;
+        for (int i = 0; i < input.Length && i < prefix.Length; i++)
+        {
+            if (input[i] == prefix[i])
+            {
+                length++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        return length;
+    }
+
+    static void Main()
+    {
+        string text = "example";
+        string prefix = "exa";
+
+        int prefixLength = PrefixLength(text, prefix);
+        Console.WriteLine($"The length of the prefix substring is: {prefixLength}");
+    }
+}
